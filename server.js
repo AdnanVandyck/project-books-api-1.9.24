@@ -1,5 +1,6 @@
 // DEPENDENCIES
 const express = require('express')
+const cors = require('cors')
 const mongoose = require('mongoose')
 
 // CONFIG
@@ -16,6 +17,7 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 
 //MIDDLEWARE
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 

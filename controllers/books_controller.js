@@ -72,7 +72,7 @@ books.get('/', (req, res) => {
 
 //SHOW
 books.get('/:id', (req, res) => { 
-    Book.findOne(req.params.id)
+    Book.findById(req.params.id)
     .then(book => {
         res.json(book)
     })
@@ -85,8 +85,8 @@ books.get('/:id', (req, res) => {
 //EDIT BOOK
 books.put('/:id', (req, res) => {
     Book.findByIdAndUpdate(req.params.id, req.body)
-    .then(() => {
-        res.json(Book)
+    .then(book => {
+        res.json(book)
     })
     .catch(err => {
         console.log(err)
